@@ -1,0 +1,8 @@
+0a971e2 | 2026-02-04 | Fernando Miguel Borges Costa da Silva | merge: integra parser de logs
+ba602a5 | 2026-02-04 | Fernando Miguel Borges Costa da Silva | feat(logs): parser inicial para SSH/HTTP e exportação CSV
+b14f277 | 2026-02-04 | Fernando Miguel Borges Costa da Silva | chore: inicia repositório com estrutura base e .gitignore     3	Fernando Miguel Borges Costa da Silva <fernandombcsilva@gmail.com>
+*   0a971e2 (HEAD -> main, origin/main, origin/HEAD) merge: integra parser de logs
+|\  
+| * ba602a5 (origin/feat/log-analytics, feat/log-analytics) feat(logs): parser inicial para SSH/HTTP e exportação CSV
+|/  
+* b14f277 chore: inicia repositório com estrutura base e .gitignore

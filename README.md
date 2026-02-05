@@ -1,1 +1,1 @@
-# Projeto LPD 2025-2026
+ECHO is on.
