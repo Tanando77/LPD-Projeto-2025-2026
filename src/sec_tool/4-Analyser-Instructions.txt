@@ -1,0 +1,17 @@
+A forma correta de correr a partir da pasta raiz do projeto (LPD-Projeto-2025-2026):1- 
+1- Abre o terminal (CMD ou PowerShell).
+2- Navega até à pasta principal: cd C:\Users\MESI\LPD-Projeto-2025-2026
+3- Executa o comando como um módulo:
+	python -m src.sec_tool.analyzer
+
+O que vai acontecer?
+Ao executares este comando, o fluxo será o seguinte:
+1- Ligação: O Windows liga-se à VM 192.168.1.95.
+2- Download: Verás mensagens no terminal a dizer [*] A descarregar /var/log/auth.log....
+3- Processamento: O script lê as linhas, aplica as Regex e consulta o GeoIP.
+4- Gravação: Os dados são inseridos no ficheiro projeto_seguranca.db.
+
+Possíveis Erros e Soluções:
+-Erro de Autenticação: Verifica se o VM_USER e VM_PASS no código do analyzer.py estão corretos para a tua VM Linux.
+-Permission Denied: Se o script não conseguir descarregar os logs, vai à tua VM Linux e corre: sudo chmod 644 /var/log/auth.log /var/log/apache2/access.log
+-Ficheiro GeoIP: Se não tiveres o ficheiro GeoLite2-City.mmdb, o script vai funcionar, mas dirá "Desconhecido" no país.

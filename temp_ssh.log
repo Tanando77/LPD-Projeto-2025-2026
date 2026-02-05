@@ -1,0 +1,55 @@
+2026-02-05T05:22:18.293938-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T05:22:41.862490-05:00 kali sudo:     root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/sbin/ufw enable
+2026-02-05T05:22:41.863243-05:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:22:42.374001-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T05:25:01.146739-05:00 kali CRON[45250]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:25:01.150982-05:00 kali CRON[45250]: pam_unix(cron:session): session closed for user root
+2026-02-05T05:33:57.243412-05:00 kali sudo:     root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/nano /etc/rsyslog.d/50-default.conf
+2026-02-05T05:33:57.243602-05:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:34:30.861984-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T05:35:00.401818-05:00 kali sudo:     root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/systemctl restart rsyslog
+2026-02-05T05:35:00.402014-05:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:35:00.465716-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T05:35:01.211746-05:00 kali CRON[51171]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:35:01.215302-05:00 kali CRON[51171]: pam_unix(cron:session): session closed for user root
+2026-02-05T05:36:32.884653-05:00 kali sudo:     root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/nano /etc/rsyslog.conf
+2026-02-05T05:36:32.891107-05:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:37:01.443398-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T05:37:07.854009-05:00 kali sudo:     root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/systemctl restart rsyslog
+2026-02-05T05:37:07.854957-05:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:37:07.909029-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T05:39:01.230353-05:00 kali CRON[53548]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:39:01.236176-05:00 kali CRON[53548]: pam_unix(cron:session): session closed for user root
+2026-02-05T05:45:01.257311-05:00 kali CRON[57120]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:45:01.260600-05:00 kali CRON[57120]: pam_unix(cron:session): session closed for user root
+2026-02-05T05:51:42.259160-05:00 kali sudo:     root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/chmod 644 /var/log/auth.log
+2026-02-05T05:51:42.259438-05:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:51:42.260950-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T05:51:56.639526-05:00 kali sudo:     root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/chmod 644 /var/log/apache2/access.log
+2026-02-05T05:51:56.639639-05:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:51:56.641912-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T05:55:01.305468-05:00 kali CRON[63114]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T05:55:01.310966-05:00 kali CRON[63114]: pam_unix(cron:session): session closed for user root
+2026-02-05T06:04:57.606984-05:00 kali sudo:     root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/systemctl status ssh
+2026-02-05T06:04:57.607199-05:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T06:04:57.628621-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T06:05:01.519101-05:00 kali CRON[68996]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T06:05:01.522132-05:00 kali CRON[68996]: pam_unix(cron:session): session closed for user root
+2026-02-05T06:05:31.649939-05:00 kali sudo:     root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/sbin/ufw allow 22/tcp
+2026-02-05T06:05:31.650118-05:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T06:05:31.804049-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T06:05:39.823808-05:00 kali sudo:     root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/usr/sbin/ufw reload
+2026-02-05T06:05:39.823993-05:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T06:05:41.976650-05:00 kali sudo: pam_unix(sudo:session): session closed for user root
+2026-02-05T06:06:12.151587-05:00 kali sshd-session[70193]: Accepted password for root from 192.168.1.97 port 52791 ssh2
+2026-02-05T06:06:12.153112-05:00 kali sshd-session[70193]: pam_unix(sshd:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T06:06:12.158225-05:00 kali systemd-logind[36371]: New session '23' of user 'root' with class 'user' and type 'tty'.
+2026-02-05T06:06:12.222891-05:00 kali sshd-session[70201]: Connection closed by 192.168.1.97 port 52791
+2026-02-05T06:06:12.223582-05:00 kali sshd-session[70193]: pam_unix(sshd:session): session closed for user root
+2026-02-05T06:06:12.228062-05:00 kali systemd-logind[36371]: Session 23 logged out. Waiting for processes to exit.
+2026-02-05T06:06:12.229564-05:00 kali systemd-logind[36371]: Removed session 23.
+2026-02-05T06:09:01.691136-05:00 kali CRON[71886]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T06:09:01.694128-05:00 kali CRON[71886]: pam_unix(cron:session): session closed for user root
+2026-02-05T06:11:42.959956-05:00 kali sshd-session[73581]: Accepted password for root from 192.168.1.97 port 52616 ssh2
+2026-02-05T06:11:42.961205-05:00 kali sshd-session[73581]: pam_unix(sshd:session): session opened for user root(uid=0) by root(uid=0)
+2026-02-05T06:11:42.964879-05:00 kali systemd-logind[36371]: New session '25' of user 'root' with class 'user' and type 'tty'.
