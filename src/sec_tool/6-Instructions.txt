@@ -1,0 +1,21 @@
+Como Testar
+1-Lançar o Servidor:
+Abre um terminal.
+Executa: python 6-knock-servidor.py
+Vais ver que ele fica bloqueado à espera da porta 7000.
+
+Lançar o Cliente:
+Abre um segundo terminal.
+Executa: python 6-knock-cliente.py
+
+O Processo:
+O cliente envia um pacote para a porta 7000 (UDP).
+O servidor recebe e muda para a porta 8000.
+O cliente espera 0.5s e envia para a 8000.
+O servidor recebe e muda para a 9000.
+O cliente envia para a 9000.
+O servidor valida tudo e abre a porta 9999 (TCP).
+O cliente conecta-se automaticamente à porta 9999 e recebe a mensagem "ACESSO AUTORIZADO!".
+
+Teste de Falha (Opcional):
+Se tentares conectar diretamente à porta 9999 (usando telnet ou browser) sem correr o script do cliente primeiro, a conexão será recusada, pois o socket TCP nem sequer existe até a sequência ser cumprida.
