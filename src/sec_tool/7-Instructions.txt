@@ -1,1 +1,16 @@
-7-Instructions
+Iniciar: Abre o terminal e corre: python 7-manager.py
+
+O Login 2FA:
+Como é a primeira vez, o programa vai gerar um Segredo.
+Vai aparecer na tela: (MODO TESTE) Codigo valido agora: XXXXXX.
+Copia esse número de 6 dígitos e cola quando ele pedir o código.
+Isto simula teres a app Google Authenticator no telemóvel.
+
+Utilizar o Gestor:
+
+Opção 1: Cria uma senha para o facebook.com.
+Opção 2: Vê a lista. A senha vai aparecer legível porque o programa a desencriptou na hora.
+Verificação: Abre o ficheiro passwords.json num editor de texto. Vais ver que a password lá dentro é ilegível (hexadecimal gigante), provando que a encriptação RSA está a funcionar.
+
+Atualizar e Apagar:
+Usa as opções 3 e 4 para editar ou remover registos usando o número de ID que aparece na lista.

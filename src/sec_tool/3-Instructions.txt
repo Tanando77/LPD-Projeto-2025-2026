@@ -1,0 +1,34 @@
+Instruções de Execução
+python3 3-SynFlood.py
+
+Configuração do Alvo
+O programa é interativo e solicitará duas informações no terminal:
+IP do Alvo: Insira o endereço IPv4 da máquina vítima
+Porta do Alvo: Insira a porta do serviço TCP que deseja testar
+
+Exemplo de interação:
+
+Plaintext
+IP do Alvo: 192.168.1.105
+Porta do Alvo (ex: 80): 80
+Passo 3: Monitorização do Ataque
+Após a inserção dos dados, o ataque inicia imediatamente. O terminal exibirá:
+
+Uma mensagem de início (A iniciar SYN Flood em...).
+
+Um contador de progresso a cada 100 pacotes enviados, para confirmar que o script está ativo sem poluir visualmente o ecrã.
+
+Exemplo de Output:
+
+Plaintext
+A iniciar SYN Flood em 192.168.1.105:80...
+Pacotes SYN enviados: 100
+Pacotes SYN enviados: 200
+Pacotes SYN enviados: 300
+...
+
+
+Como Parar a Execução
+O script foi desenhado para rodar em loop infinito até ser interrompido manualmente.
+Para encerrar o teste: CTRL + C.
+O programa capturará a interrupção e encerrará com a mensagem: Ataque interrompido.

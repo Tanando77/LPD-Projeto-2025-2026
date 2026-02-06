@@ -1,0 +1,9 @@
+Instruções GitHub
+
+git branch -M main
+git status
+git add .
+git status
+git commit -m "MENSAGEM DO COMMIT"
+git push -u origin main
+git push

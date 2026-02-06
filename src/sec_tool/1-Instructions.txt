@@ -1,0 +1,25 @@
+Executar o programa
+python 1-PortScan.py
+
+Após a execução, o programa solicitará três informações:
+Endereço do host "Enter the remote host IP to scan:"
+Introduzir: Um endereço IP (ex.: 192.168.1.1, 127.0.0.1) ou um hostname válido (ex.: google.com)
+
+Porta inicial
+Enter the start port number
+Introduzir o número da porta inicial (ex.: 1, 20, 80)
+
+Porta final
+Enter the last port number
+Introduzir o número da porta final (ex.: 1024)
+
+Resultados
+O programa irá testar todas as portas no intervalo definido.
+Cada porta aberta será exibida no ecrã:
+
+No final, será mostrado o tempo total de execução:
+
+
+Interrupção do programa
+
+Para interromper a execução a qualquer momento, pressionar: Ctrl + C

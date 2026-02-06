@@ -1,0 +1,24 @@
+Como executar o programa
+python 2-UDPFlood.py
+
+Após a execução, o programa solicitará um IP alvo para enviar os pacotes UDP:
+Target IP:
+Digite o endereço IP do servidor ou host que você deseja testar (por exemplo, 192.168.1.1, google.com, etc.).
+
+Envio de pacotes UDP
+O programa começa a enviar pacotes UDP aleatórios para o IP alvo nas portas de 1 até 65535 (todas as portas possíveis). O terminal exibirá a quantidade de pacotes enviados para cada porta:
+
+Enviados 1 pacotes para 192.168.1.1 na porta 1
+Enviados 2 pacotes para 192.168.1.1 na porta 2
+Enviados 3 pacotes para 192.168.1.1 na porta 3
+...
+
+O programa não tem fim definido, enviando pacotes até você interromper a execução.
+
+
+Interrupção do programa
+
+Para interromper a execução a qualquer momento, pressione: Ctrl + C
+
+O programa exibirá a mensagem:
+Processo interrompido pelo utilizador.
