@@ -1,0 +1,31 @@
+Como Testar:
+
+Terminal 1 (Servidor): Executa: python 5-server.py (Não fazes nada aqui, só deixas a correr).
+
+Terminal 2 (Cliente A): Executa: python 5-client.py
+
+Nome: XXXXX (o que quisermos)
+
+O programa vai criar as chaves.
+
+Sai do programa (Opção 0).
+
+Terminal 3 (Cliente B): Executa: python 5-client.py
+
+Nome: xxxxx-2 (o que quisermos)
+
+Escolhe 1 (Enviar).
+
+Para: XXXXX-1.
+
+Mensagem: Ola XXXXX-1 segredo.
+
+Terminal 2 (Volta ao Cliente A):
+
+Executa novamente como XXXXX-1.
+
+Escolhe 2 (Ver Caixa).
+
+Vais conseguir ler a mensagem que a XXXXX-2 enviou.
+
+Escolhe 3 (Backup) para testar a exportação segura.
