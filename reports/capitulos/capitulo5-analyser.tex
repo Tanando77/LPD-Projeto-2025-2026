@@ -1,0 +1,29 @@
+\chapter{Análise Forense e Logs: 4-Analyser.py}
+\label{cap5}
+
+\section{Fundamentação Teórica: Análise de Logs e SIEM}
+O enunciado exige a análise de ficheiros de log (SSH, HTTP) para detetar intrusões. Este processo é vital em Forense Digital. A análise consiste em identificar padrões de ataque (como Brute Force), extrair o carimbo temporal (\textit{timestamp}) e a origem. A integração com GeoIP permite transformar um endereço IP numa localização geográfica, auxiliando na identificação da proveniência dos ataques.
+
+\section{Arquitetura e Persistência}
+O módulo é um ecossistema que utiliza \texttt{re} (Regex) para o \textit{parsing}, \texttt{sqlite3} para armazenamento (ficheiro \texttt{projeto\_seguranca.db}) e \texttt{report.py} para o output.
+
+\section{Análise Detalhada do Código}
+
+O script \texttt{4-Analyser.py} foca-se na extração inteligente de dados:
+
+\begin{lstlisting}[caption={Extração de IPs e Registo em Base de Dados}]
+import re
+import sqlite3
+
+# Expressão regular para isolar o IP de uma linha de log de falha SSH.
+pattern = r"Failed password for .* from (\d+\.\d+\.\d+\.\d+)"
+
+def process_logs(log_file):
+    with open(log_file, 'r') as f:
+        for line in f:
+            match = re.search(pattern, line)
+            if match:
+                ip_address = match.group(1)
+                # Inserção no projeto_seguranca.db via db.py
+                save_incident(ip_address)
+\end{lstlisting}

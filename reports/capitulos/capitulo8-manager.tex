@@ -1,0 +1,30 @@
+\chapter{Gestão de Segredos: 7-Manager}
+\label{cap8}
+
+\section{Fundamentação Teórica: Armazenamento Seguro e TOTP}
+O requisito 1.7 foca-se na gestão de passwords. Guardar passwords em texto limpo é uma falha grave. A solução passa por cifrar os dados (URL/User/Pass) e proteger o acesso ao cofre com autenticação de dois fatores (2FA). O TOTP (\textit{Time-based One-Time Password}) gera códigos temporários, garantindo que, mesmo que a password mestre seja roubada, o atacante não aceda aos dados sem o segundo fator.
+
+\section{Implementação do Vault}
+O script \texttt{7-manager.py} gere o \texttt{passwords.json}, enquanto o \texttt{7-seguranca.py} lida com a autenticação 2FA.
+
+\section{Análise Detalhada do Código}
+A segurança do ficheiro JSON é garantida pela cifragem dos campos sensíveis:
+
+\begin{lstlisting}[caption={Gestão de Cofre Cifrado}]
+import json
+import pyotp
+
+def verify_2fa(user_token):
+    # Implementação de TOTP com pyotp.
+    totp = pyotp.TOTP("BASE32SECRETKEY")
+    return totp.verify(user_token)
+
+def save_to_json(service, password):
+    # Ciframos a password antes de escrever no passwords.json
+    encrypted_pw = encrypt_with_master_key(password)
+    # Persistência estruturada em JSON
+    with open('passwords.json', 'w') as f:
+        json.dump({service: encrypted_pw}, f)
+\end{lstlisting}
+
+Este capítulo conclui o projeto, abordando a segurança do utilizador final e a proteção de segredos digitais.

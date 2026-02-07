@@ -1,0 +1,86 @@
+% Template for final reports and dissertations (Instituto Politécnico de Beja)
+% Author: João Paulo Barros, joao.barros@ipbeja.pt
+% Com contribuições de Henrique Água-Doce, Nuno Mourinho e Raul Carvalho. 
+
+%para texto em Português
+\documentclass[PT,alphabetic]{ipbeja-format}
+%para texto em Português com APA
+%\documentclass[PT,apa]{ipbeja-format}
+
+%for text in English
+%\documentclass[]{ipbeja-format}
+
+\input{02-info-to-fill}
+\usepackage[]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{array}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{xcolor}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{gray},
+    frame=single,
+    showstringspaces=false
+}
+\hypersetup{hidelinks,hypertexnames=true}
+
+\begin{document}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\folhacapa % 2.1 das normas
+\folharosto % 2.3 das normas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter % parte inicial
+
+\clearpage
+\input{parte-inicial/resumo}
+%\clearpage
+%\input{parte-inicial/abstract}
+
+% Se pretender remover, comente a linha seguinte, caso contrário preencha o ficheiro agradecimentos.tex
+
+\clearpage
+\indicegeral  
+\clearpage
+%\indicedefiguras % Remover se houver menos de 5 figuras
+\indicedelistagens % Remover se houver menos de 5 figuras
+%\clearpage
+
+% No caso de se verificar "um número significativamente elevado de abreviaturas e siglas" deve retirar-se o 
+% comentário da linha seguinte e preencher o ficheiro parte-inicial/abreviaturas.tex
+%\include{parte-inicial/abreviaturas} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter  \pagestyle{ruled} % parte principal
+\pagenumbering{arabic}
+
+\input{capitulos/capitulo1-introducao} % introducao
+\input{capitulos/capitulo2-portscan} % Auditoria de Rede: 1-PortScan
+\input{capitulos/capitulo3-udpflood} % Negação de Serviço UDP: 2-UDPFlood
+\input{capitulos/capitulo4-synflood} % Ataque de Exaustão TCP: 3-SynFlood.py
+\input{capitulos/capitulo5-analyser} % Análise Forense e Logs: 4-Analyser.py
+\input{capitulos/capitulo6-messenger} % Mensagens Seguras: 5-Messenger
+\input{capitulos/capitulo7-portknock} % Proteção Dinâmica: 6-Port Knocking
+\input{capitulos/capitulo8-manager} % Gestão de Segredos: 7-Manager
+\input{capitulos/capitulo9-conclusao} % conclusao
+
+
+% para adicionar o  capítulo N adicione a linha \input{capituloN} e crie o ficheiro 
+% capituloN.tex na directoria "capitulos" 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliografia
+\clearpage
+\printbibliography[heading=bibintoc]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\vfill
+%{\footnotesize Documento elaborado com base no template for final reports and dissertations (Instituto Politécnico de Beja), disponível em \url{https://www.overleaf.com/project/5d936b9ea273390001434a37}, \version, Autor: João Paulo Barros, joao.barros@ipbeja.pt}
+\end{document}

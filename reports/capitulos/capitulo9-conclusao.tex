@@ -1,0 +1,28 @@
+\chapter{Conclusão}
+\label{cap9}
+
+\section{Síntese do Trabalho Desenvolvido}
+O presente projeto permitiu o desenvolvimento de uma ferramenta multifuncional de segurança informática, centrada na utilização de Python como linguagem de programação dinâmica. Ao longo do trabalho, foram implementados módulos ofensivos, como o varrimento de portos e ataques de negação de serviço (\textit{UDP} e \textit{SYN Flood}), e módulos defensivos, como o analisador de logs com geolocalização, o sistema de \textit{port knocking} e um gestor de credenciais seguro.
+
+A arquitetura modular adotada facilitou a organização do código e a separação de responsabilidades, garantindo que cada ferramenta funcionasse de forma independente, mas integrada num ecossistema de segurança coerente.
+
+\section{Análise de Requisitos e Limitações}
+Apesar dos objetivos gerais terem sido atingidos, é importante salientar que certas funcionalidades sugeridas no enunciado não foram implementadas. Por motivos de restrições temporais e pela complexidade técnica inerente a alguns protocolos, não foi possível colmatar todas as lacunas de conhecimento a tempo da entrega final.
+
+\subsection{Funcionalidades Não Implementadas}
+Em particular, as seguintes áreas não foram exploradas conforme solicitado:
+\begin{itemize}
+    \item \textbf{Integração com Syslog Server:} Embora o processamento de logs local (\textit{auth.log} e \textit{access.log}) tenha sido concluído, a implementação de um servidor \textit{syslog} centralizado (mencionada como opção valorizada no enunciado) revelou-se um desafio técnico que exigiria mais tempo de estudo sobre protocolos de rede e configuração de serviços de monitorização remota.
+    \item \textbf{Escrita de Código em C/C++:} O enunciado sugeria o uso eventual de bibliotecas ou código adicional em C/C++ para otimização. Devido à curva de aprendizagem necessária para realizar a ponte (\textit{binding}) entre Python e C de forma robusta, optou-se por manter a aplicação exclusivamente em Python, priorizando a estabilidade da solução atual.
+    \item \textbf{Estatísticas Visuais Avançadas:} O processamento de dados foi realizado, mas a geração de gráficos estatísticos complexos e dinâmicos para todos os serviços foi limitada por dificuldades na integração de bibliotecas de visualização de dados num curto espaço de tempo.
+\end{itemize}
+
+\section{Autoavaliação e Aprendizagem}
+A incapacidade de implementar a totalidade das opções de valorização deve-se, em grande parte, à gestão do tempo e à necessidade de aprofundar conceitos de rede que se revelaram mais densos do que inicialmente previsto. No entanto, este processo foi fundamental para identificar as minhas atuais lacunas técnicas, servindo como roteiro para estudos futuros.
+
+O trabalho permitiu consolidar competências em \textit{sockets}, manipulação de pacotes com \texttt{Scapy}, persistência em bases de dados \texttt{SQLite} e criptografia. Mais do que uma ferramenta acabada, este projeto representa uma evolução significativa na minha capacidade de resolver problemas de engenharia informática utilizando linguagens dinâmicas.
+
+\section{Considerações Finais}
+Em suma, o projeto demonstra o potencial do Python para a prototipagem rápida de ferramentas de cibersegurança. Embora algumas metas secundárias não tenham sido alcançadas pelas razões expostas, os requisitos principais do enunciado foram cumpridos com rigor, resultando numa aplicação funcional, documentada e estruturada segundo as boas práticas de desenvolvimento.
+
+\nocite{*}

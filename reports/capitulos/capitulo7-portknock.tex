@@ -1,0 +1,30 @@
+\chapter{Proteção Dinâmica: Port Knocking}
+\label{cap7}
+
+\section{Fundamentação Teórica: Segurança por Obscuridade Ativa}
+O Port Knocking é um método para abrir portas numa firewall através de uma sequência de tentativas de conexão a portas fechadas. Teoricamente, funciona como uma "combinação" secreta. Enquanto a sequência não for batida corretamente, o porto real (ex: SSH na 22) permanece invisível para scanners (como o do Capítulo 1), protegendo contra vulnerabilidades \textit{zero-day}.
+
+\section{Implementação da Máquina de Estados}
+O servidor (\texttt{6-knock-servidor.py}) monitoriza os pacotes e o cliente (\texttt{6-knock-cliente.py}) executa a sequência.
+
+\section{Análise Detalhada do Código}
+
+A lógica reside na validação da sequência temporal:
+
+\begin{lstlisting}[caption={Validação de Sequência no Servidor}]
+# Sequência definida em 6-Instructions.txt
+knock_sequence = [1000, 2000, 3000]
+current_state = 0
+
+def on_packet(received_port):
+    global current_state
+    if received_port == knock_sequence[current_state]:
+        current_state += 1
+        if current_state == len(knock_sequence):
+            # Se a sequência estiver completa, abre a firewall
+            open_ssh_port()
+    else:
+        current_state = 0 # Reinicia se falhar a sequência
+\end{lstlisting}
+
+Este módulo, embora adicional, reforça a robustez da aplicação ao interagir diretamente com as regras de firewall do Linux.

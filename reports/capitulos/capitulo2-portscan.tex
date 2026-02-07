@@ -1,0 +1,36 @@
+\chapter{Auditoria de Rede: 1-PortScan}
+\label{cap2}
+
+\section{Fundamentação Teórica e Requisitos}
+O enunciado solicita uma ferramenta capaz de detetar portos de rede disponíveis em máquinas remotas. Teoricamente, isto baseia-se no modelo OSI, especificamente na Camada de Transporte. O protocolo TCP utiliza o conceito de "portos" para endereçar serviços (ex: HTTP no 80, SSH no 22). Um porto "aberto" indica que uma aplicação está a aceitar conexões através do processo de \textit{Three-way Handshake}. No contexto de auditoria, identificar estes portos é o primeiro passo para o mapeamento da superfície de ataque.
+
+\section{Estratégia de Implementação}
+No ficheiro \texttt{1-PortScan.py}, optou-se pela biblioteca \texttt{socket}, nativa do Python. A escolha do método \texttt{connect\_ex} em detrimento do \texttt{connect} simples deve-se à gestão de erros: o primeiro retorna um código de estado (0 para sucesso) enquanto o segundo lança uma exceção, o que tornaria o código mais lento e verboso devido ao tratamento de erros constante.
+
+\section{Análise Detalhada do Código}
+
+O núcleo do script foca-se na criação e teste do socket:
+
+\begin{lstlisting}[caption={Lógica de Auditoria de Rede}]
+import socket
+
+def port_scanner(target_ip, port):
+    # Criamos um socket IPv4 (AF_INET) e TCP (SOCK_STREAM)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
+    # Definimos um timeout para evitar que o script espere infinitamente 
+    # por portos protegidos por firewalls que fazem 'DROP' de pacotes.
+    sock.settimeout(1.0)
+    
+    # connect_ex tenta completar o handshake. 
+    # Retorna 0 se o porto responder com SYN-ACK.
+    result = sock.connect_ex((target_ip, port))
+    
+    if result == 0:
+        print(f"O porto {port} está ABERTO no alvo {target_ip}.")
+    else:
+        # Caso o erro seja diferente de 0, o porto está fechado ou filtrado.
+        pass
+    
+    sock.close()
+\end{lstlisting}
